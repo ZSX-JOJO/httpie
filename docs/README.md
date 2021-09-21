@@ -1,6 +1,6 @@
 <div class='hidden-website'>
 
-# HTTPie Documentation
+# HTTPie documentation
 
 </div>
 
@@ -78,6 +78,7 @@ $ dnf install httpie
 
 ```bash
 # CentOS, RHEL, ...
+$ yum install epel-release
 $ yum install httpie
 ```
 
@@ -101,7 +102,7 @@ $ apk add httpie
 $ eopkg install httpie
 ```
 
-### Windows, etc.
+### Windows, universal
 
 A universal installation method (that works on Linux, macOS and Windows, and always provides the latest version) is to use [pip](https://pypi.org/project/pip/):
 
@@ -147,7 +148,7 @@ Verify that now you have the [current development version identifier](https://gi
 
 ```bash
 $ http --version
-# 2.5.0
+# 2.6.0.dev0
 ```
 
 ## Usage
@@ -1474,40 +1475,40 @@ To set a cookie within a Session there are three options:
 
 1. Get a `Set-Cookie` header in a response from a server
 
-```bash
-$ http --session=./session.json pie.dev/cookie/set?foo=bar
-```
+   ```bash
+   $ http --session=./session.json pie.dev/cookie/set?foo=bar
+   ```
 
 2. Set the cookie name and value through the command line as seen in [cookies](#cookies)
 
-```bash
-$ http --session=./session.json pie.dev/headers Cookie:foo=bar
-```
+   ```bash
+   $ http --session=./session.json pie.dev/headers Cookie:foo=bar
+   ```
 
 3. Manually set cookie parameters in the JSON file of the session
 
-```json
-{
-    "__meta__": {
-    "about": "HTTPie session file",
-    "help": "https://httpie.org/doc#sessions",
-    "httpie": "2.2.0-dev"
-    },
-    "auth": {
-        "password": null,
-        "type": null,
-        "username": null
-    },
-    "cookies": {
-        "foo": {
-            "expires": null,
-            "path": "/",
-            "secure": false,
-            "value": "bar"
-            }
-    }
-}
-```
+   ```json
+   {
+       "__meta__": {
+       "about": "HTTPie session file",
+       "help": "https://httpie.org/doc#sessions",
+       "httpie": "2.2.0-dev"
+       },
+       "auth": {
+           "password": null,
+           "type": null,
+           "username": null
+       },
+       "cookies": {
+           "foo": {
+               "expires": null,
+               "path": "/",
+               "secure": false,
+               "value": "bar"
+               }
+       }
+   }
+   ```
 
 Cookies will be set in the session file with the priority specified above.
 For example, a cookie set through the command line will overwrite a cookie of the same name stored in the session file.
